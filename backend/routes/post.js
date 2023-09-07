@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const Data=require('../models/data')
+const Data=require("../models/data")
 const mongoose = require('mongoose')
 
 

@@ -2,14 +2,14 @@ const express=require('express')
 const app=express()
 const mongoose=require('mongoose')
 require('dotenv').config()
-const dataRoutes=require('./routes/post')
-const userRoutes=require('./routes/post')
+const dataRoutes=require("../backend/routes/post")
+
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
 
-const PORT=5200;
+const PORT=process.env.PORT
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use("/api/post",dataRoutes)  //Route End point
 
-app.use("/api/user",userRoutes)
+
 
 
 
@@ -33,5 +33,5 @@ app.use("/api/user",userRoutes)
 app.get('/',(req,res)=>{
     res.send("Hello World")
 })
-app.listen(5200,()=>console.log(`Server is Running in Port${5200}`))
+app.listen(PORT,()=>console.log(`Server is Running in Port${PORT}`))
 
